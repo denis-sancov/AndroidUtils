@@ -1,3 +1,1 @@
-include ':utils'
-include ':app'
-rootProject.name = "Utils Demo App"
+include ':app', ':utils'
