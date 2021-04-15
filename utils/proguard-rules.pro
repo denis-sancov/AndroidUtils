@@ -19,31 +19,3 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
-
--keepnames class kotlinx.coroutines.internal.MainDispatcherFactory {}
--keepnames class kotlinx.coroutines.CoroutineExceptionHandler {}
-
--keepclassmembernames class kotlinx.* {
-    volatile <fields>;
-}
-
--keepclassmembers class * { public <init>(...);  }
-
--keep class kotlin.Metadata {
-    *;
-}
-
--keep class org.xmlpull.v1.* { *; }
-
--keepclassmembers enum * {
-    public *;
-}
-
--assumenosideeffects class android.util.Log {
-  v(...);
-  d(...);
-  i(...);
-  w(...);
-  e(...);
-  println(...);
-}
