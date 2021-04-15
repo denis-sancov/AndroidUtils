@@ -1,5 +1,7 @@
 package md.sancov.utils
 
+typealias EmptyState = State<Unit>
+
 sealed class State<T> {
     data class Success<T>(val value: T): State<T>()
     data class Loading<T>(val value: T?): State<T>()
@@ -9,6 +11,12 @@ sealed class State<T> {
         is Success -> value
         is Loading -> value
         is Error -> value
+    }
+
+    val dropData: State<Unit> get() = when (this) {
+        is Success -> Success(Unit)
+        is Loading -> Loading(Unit)
+        is Error -> Error(cause, Unit)
     }
 
     val isLoading: Boolean get() = this is Loading
