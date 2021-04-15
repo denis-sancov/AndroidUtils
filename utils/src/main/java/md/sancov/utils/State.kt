@@ -4,8 +4,8 @@ typealias EmptyState = State<Unit>
 
 sealed class State<T> {
     data class Success<T>(val value: T): State<T>()
-    data class Loading<T>(val value: T?): State<T>()
-    data class Error<T>(val cause: Throwable, val value: T?): State<T>()
+    data class Loading<T>(val value: T? = null): State<T>()
+    data class Error<T>(val cause: Throwable, val value: T? = null): State<T>()
 
     val data: T? get() = when (this) {
         is Success -> value
@@ -19,6 +19,7 @@ sealed class State<T> {
         is Error -> Error(cause, Unit)
     }
 
+    val isSuccess: Boolean get() = this is Success
     val isLoading: Boolean get() = this is Loading
     val isError: Boolean get() = this is kotlin.Error
 
