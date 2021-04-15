@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Unit -->
+
+    <string name="unit_meter">м</string>
+    <string name="unit_km">км</string>
+
+
+    <!-- Currency   -->
+
+    <string name="currency_mdl">Лей</string>
+    <string name="currency_usd">Доллар</string>
+    <string name="currency_eur">Евро</string>
+
+</resources>

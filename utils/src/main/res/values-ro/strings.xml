@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Unit -->
+
+    <string name="unit_meter">m</string>
+    <string name="unit_km">km</string>
+
+    <!-- Currency   -->
+
+    <string name="currency_mdl">Leu</string>
+    <string name="currency_usd">Dolar</string>
+    <string name="currency_eur">Euro</string>
+</resources>

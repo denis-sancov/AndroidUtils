@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Unit   -->
+
+    <string name="unit_meter">m</string>
+    <string name="unit_km">km</string>
+
+
+    <!-- Currency   -->
+
+    <string name="currency_mdl">Leu</string>
+    <string name="currency_usd">Dollar</string>
+    <string name="currency_eur">Euro</string>
+
+    <string name="sms_user_consent" translatable="false">FinComBank</string>
+</resources>
