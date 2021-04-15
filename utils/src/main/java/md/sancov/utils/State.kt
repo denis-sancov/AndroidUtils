@@ -2,7 +2,7 @@ package md.sancov.utils
 
 typealias EmptyState = State<Unit>
 
-sealed class State<T> {
+sealed class State<out T> {
     data class Success<T>(val value: T): State<T>()
     data class Loading<T>(val value: T? = null): State<T>()
     data class Error<T>(val cause: Throwable, val value: T? = null): State<T>()
