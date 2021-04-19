@@ -1,4 +1,4 @@
-package md.fincombank.utils.ex
+package md.sancov.utils.ex
 
 import java.math.BigDecimal
 import java.math.RoundingMode
@@ -8,9 +8,9 @@ fun BigDecimal.times(value: BigDecimal): BigDecimal {
 }
 
 fun BigDecimal.safeDiv(value: Double): BigDecimal {
-    return divide(BigDecimal(value), 10, RoundingMode.HALF_EVEN)
+    return divide(BigDecimal(value), 6, RoundingMode.HALF_EVEN)
 }
 
 fun BigDecimal.safeDiv(value: BigDecimal): BigDecimal {
-    return divide(value, 10, RoundingMode.HALF_EVEN)
+    return divide(value, 6, RoundingMode.HALF_EVEN)
 }
