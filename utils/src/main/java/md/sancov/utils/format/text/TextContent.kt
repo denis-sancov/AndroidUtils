@@ -20,7 +20,7 @@ interface TextContent {
                     InputType.TYPE_NUMBER_FLAG_SIGNED
 
             override val filters: Array<InputFilter> = arrayOf(
-                InputFilter.LengthFilter(10),
+                InputFilter.LengthFilter(16),
                 InputFilterDecimal(2),
             )
 
