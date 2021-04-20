@@ -5,6 +5,10 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
+inline fun<reified T> DateTimeFormatter.parseNonNull(text: CharSequence): T {
+    return tryParse(text) ?: throw Throwable("Couldn't parse $text")
+}
+
 inline fun<reified T> DateTimeFormatter.tryParse(text: CharSequence): T? {
     return try {
         val accessor = parse(text)
