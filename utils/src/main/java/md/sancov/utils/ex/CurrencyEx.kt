@@ -12,6 +12,7 @@ fun Currency.resolveSymbol(): String = when (currencyCode) {
     "CHF" -> "₣"
     "USD" -> "$"
     "EUR" -> "€"
+    "GBP" -> "£"
     else -> symbol
 }
 

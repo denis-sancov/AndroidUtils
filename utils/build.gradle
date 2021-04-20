@@ -1,7 +1,8 @@
 plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'maven-publish'
+    id "com.android.library"
+    id "kotlin-android"
+    id "kotlin-kapt"
+    id "kotlin-parcelize"
 }
 
 android {
@@ -53,18 +54,4 @@ dependencies {
 
     implementation "com.google.android.gms:play-services-auth:$gms_play_services_version"
     implementation "com.google.android.gms:play-services-auth-api-phone:$gms_phone_api"
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                from components.release
-                groupId = 'md.sancov.utls'
-                artifactId = 'utils'
-                version = '1.0'
-            }
-        }
-    }
 }
