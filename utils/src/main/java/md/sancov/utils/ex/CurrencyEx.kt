@@ -10,6 +10,8 @@ fun Currency.resolveSymbol(): String = when (currencyCode) {
     "RUB" -> "₽"
     "UAH" -> "₴"
     "CHF" -> "₣"
+    "USD" -> "$"
+    "EUR" -> "€"
     else -> symbol
 }
 
