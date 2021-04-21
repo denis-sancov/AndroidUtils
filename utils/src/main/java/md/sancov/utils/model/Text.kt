@@ -13,12 +13,12 @@ sealed class Text {
 
     data class Chars(val sequence: CharSequence?, val multiline: Boolean = false): Text()
 
-    data class Lambda(val lambda: (Context) -> CharSequence?, val multiline: Boolean = false): Text()
+    data class Lambda(val lambda: (Context) -> CharSequence?): Text()
 
     val isMultiline: Boolean get() = when (this) {
         is Resource -> multiline
         is Chars -> multiline
-        is Lambda -> multiline
+        is Lambda -> false
     }
 
     val isEmpty: Boolean get() = when (this) {
