@@ -14,3 +14,7 @@ fun BigDecimal.safeDiv(value: Double): BigDecimal {
 fun BigDecimal.safeDiv(value: BigDecimal): BigDecimal {
     return divide(value, 6, RoundingMode.HALF_EVEN)
 }
+
+val BigDecimal.rounded: BigDecimal get() {
+    return this.setScale(2, RoundingMode.HALF_UP)
+}
