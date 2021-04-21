@@ -21,13 +21,13 @@ sealed class Text: Parcelable {
     val isMultiline: Boolean get() = when (this) {
         is Resource -> multiline
         is Chars -> multiline
-        is Lambda -> false
+        else -> false
     }
 
     val isEmpty: Boolean get() = when (this) {
         is Resource -> resourceId <= 0
         is Chars -> sequence.isNullOrBlank()
-        is Lambda -> false
+        else -> false
     }
 
     fun resolve(ctx: Context): String? {
@@ -35,6 +35,7 @@ sealed class Text: Parcelable {
             is Resource -> if (resourceId == 0) null else ctx.getString(resourceId)
             is Chars -> sequence.toString()
             is Lambda -> lambda(ctx).toString()
+            else -> null
         }
     }
 }
