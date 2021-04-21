@@ -5,14 +5,17 @@ import android.os.Parcelable
 import androidx.annotation.StringRes
 import kotlinx.parcelize.Parcelize
 
-sealed class Text {
+sealed class Text: Parcelable {
     abstract override fun equals(other: Any?): Boolean
     abstract override fun hashCode(): Int
 
+    @Parcelize
     data class Resource(@StringRes val resourceId: Int, val multiline: Boolean = false): Text()
 
+    @Parcelize
     data class Chars(val sequence: CharSequence?, val multiline: Boolean = false): Text()
 
+    @Parcelize
     data class Lambda(val lambda: (Context) -> CharSequence?): Text()
 
     val isMultiline: Boolean get() = when (this) {
