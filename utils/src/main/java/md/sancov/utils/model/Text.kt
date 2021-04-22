@@ -30,11 +30,11 @@ sealed class Text: Parcelable {
         else -> false
     }
 
-    fun resolve(ctx: Context): String? {
+    fun resolve(ctx: Context): CharSequence? {
         return when (this) {
             is Resource -> if (resourceId == 0) null else ctx.getString(resourceId)
-            is Chars -> sequence.toString()
-            is Lambda -> lambda(ctx).toString()
+            is Chars -> sequence
+            is Lambda -> lambda(ctx)
             else -> null
         }
     }

@@ -4,5 +4,14 @@ import android.os.Parcelable
 import androidx.annotation.DrawableRes
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
-data class Img(@DrawableRes val resourceId: Int): Parcelable
+sealed class Img: Parcelable {
+    @Parcelize
+    data class Resource(@DrawableRes val resourceId: Int): Img()
+
+    @Parcelize
+    object Placeholder: Img()
+    
+    val isPlaceholder: Boolean get() {
+        return this is Placeholder
+    }
+}
