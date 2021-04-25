@@ -7,5 +7,5 @@ import md.sancov.utils.State
 inline fun <T, reified R> Flow<State<T>>.mapState(
         crossinline transform: suspend (value: T?) -> R
 ): Flow<State<R>> {
-    return map { it.map(transform) }
+    return map { it.mapAsync(transform) }
 }

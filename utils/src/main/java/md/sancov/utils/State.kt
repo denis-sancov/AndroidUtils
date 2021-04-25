@@ -23,7 +23,18 @@ sealed class State<out T> {
     val isLoading: Boolean get() = this is Loading
     val isError: Boolean get() = this is kotlin.Error
 
-    suspend inline fun<reified R> map(crossinline transform: suspend (value: T?) -> R): State<R> {
+
+    inline fun<reified R> map(crossinline transform: (value: T?) -> R): State<R> {
+        val transformed = transform(data)
+
+        return when (this) {
+            is Success -> Success(transformed)
+            is Loading -> Loading(transformed)
+            is Error -> Error(cause, transformed)
+        }
+    }
+
+    suspend inline fun<reified R> mapAsync(crossinline transform: suspend (value: T?) -> R): State<R> {
         val transformed = transform(data)
 
         return when (this) {
