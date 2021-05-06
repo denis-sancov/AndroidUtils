@@ -4,7 +4,7 @@ import java.util.*
 
 val String.isBool: Boolean
     get() {
-        val tmp = toLowerCase(Locale.ROOT)
+        val tmp = lowercase(Locale.ROOT)
         return tmp == "false" || tmp == "true"
     }
 

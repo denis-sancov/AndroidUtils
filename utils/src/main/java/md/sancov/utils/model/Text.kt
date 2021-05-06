@@ -35,7 +35,6 @@ sealed class Text: Parcelable {
             is Resource -> if (resourceId == 0) null else ctx.getString(resourceId)
             is Chars -> sequence
             is Lambda -> lambda(ctx)
-            else -> null
         }
     }
 }
