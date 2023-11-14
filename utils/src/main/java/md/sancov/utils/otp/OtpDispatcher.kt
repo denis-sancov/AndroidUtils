@@ -44,7 +44,11 @@ data class OtpDispatcher(private val activity: FragmentActivity) : DefaultLifecy
         super.onResume(owner)
 
         val filter = IntentFilter(SmsRetriever.SMS_RETRIEVED_ACTION)
-        activity.registerReceiver(receiver, filter)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+            activity.registerReceiver(receiver, filter, Context.RECEIVER_EXPORTED)
+        else
+            activity.registerReceiver(receiver, filter)
     }
 
     override fun onPause(owner: LifecycleOwner) {
